@@ -11,14 +11,14 @@ const randomChoice = arr => {
 
 const Userhint = ({loading, hintText}) => (
   <div className = "user-hint">
-    {loading ?  <img className="block mx-auto" src={loader}/> : hintText}
+    {loading ?  <img alt="lol" className="block mx-auto" src={loader}/> : hintText}
   </div>
 );
 
 const Header = ({clearSearch, hasResults}) => (
   <div className="header grid">
     {hasResults ?
-      <button onClick={clearSearch}><img className="block mx-auto" src={close}/></button> :
+      <button onClick={clearSearch}><img alt="lol" className="block mx-auto" src={close}/></button> :
       <h1 className="title">Jiffy - your gif generator</h1>
     }
   </div>
@@ -46,7 +46,8 @@ class App extends Component {
       const {data} = await response.json();
 
       if (!data.length) {
-        throw  `Nothing found for ${searchTerm}`
+        var err = `Nothing found for ${searchTerm}`;
+        throw err;
       }
 
       const randomGif = randomChoice(data)
